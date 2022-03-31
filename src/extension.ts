@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('diana-substitute.helloWorld', () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
-		vscode.window.showInformationMessage('HHHHHHHHello World from Diana-Substitute!');
+		vscode.window.showInformationMessage('Hello!');
 	});
 
 	context.subscriptions.push(disposable);
