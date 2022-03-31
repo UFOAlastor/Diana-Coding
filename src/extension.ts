@@ -5,7 +5,6 @@ import * as vscode from 'vscode';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "diana-substitute" is now active!');
@@ -16,7 +15,11 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('diana-substitute.helloWorld', () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
+<<<<<<< HEAD
 		vscode.window.showInformationMessage('HHHHHHHHello World from Diana-Substitute!');
+=======
+		vscode.window.showInformationMessage('Hello World from Diana-Substitute!233333333');
+>>>>>>> ea0ba02125e8c323918c128d8c7d8282ce5082b9
 	});
 
 	context.subscriptions.push(disposable);
