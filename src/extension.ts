@@ -74,3 +74,7 @@ let editorListener: any = (function () {
     };
     return editorListener;
 }());
+
+let tempDiv = document.createElement('div');
+tempDiv.innerHTML = '<div id="Diana" style="${position}: ${moveX + 70}px; bottom: ${moveY + 20}px; opacity: ${opacity}; transition: opacity 300ms ease-in-out"><div id="waifu-tips" style="transform: translateX(-50%) scale(${modelWidth / 280})"></div><canvas id="live2d" width="${modelWidth}" height="${modelHeight}"></canvas></div>';
+// not finish
