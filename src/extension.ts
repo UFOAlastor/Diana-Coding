@@ -13,42 +13,64 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(disposable);
 
     let listener :any =  null;
-    listener = listener || new EditorListener();
+    listener = listener || new editorListener();
     context.subscriptions.push(listener);
 }
 
 export function deactivate() {}
 
-var EditorListener :any = (function () {
-    function EditorListener(this: any){
+let editorListener: any = (function () {
+    function editorListener(this: any){
         vscode.workspace.onDidChangeTextDocument(this._keystrokeCallback, this, this._subscriptions);
     }
-    EditorListener.prototype._keystrokeCallback = function (e : any) {
+    editorListener.prototype._keystrokeCallback = function (e : any) {
 
         var pressedKey : string = e.contentChanges[0].text;
-        if(pressedKey.length>1&&pressedKey!="()"&&pressedKey!="{}"&&pressedKey!="[]"&&pressedKey!="<>"){
+        if(pressedKey.length>1 && pressedKey !== "()" && pressedKey !== "{}" && pressedKey !== "[]" && pressedKey !== "<>"){
             vscode.window.showInformationMessage("Ctrl+V ?");
         }
-        else if(pressedKey==""){
+        else if(pressedKey === ""){
             vscode.window.showInformationMessage("Backspace");
         }
-        else if(pressedKey>="A"&&pressedKey<="Z"){
+        else if(pressedKey >= "A" && pressedKey <= "Z"){
             vscode.window.showInformationMessage("Shift+"+pressedKey);
         }
-        else if(pressedKey=="!") vscode.window.showInformationMessage("Shift+1");
-        else if(pressedKey=="@") vscode.window.showInformationMessage("Shift+2");
-        else if(pressedKey=="#") vscode.window.showInformationMessage("Shift+3");
-        else if(pressedKey=="$") vscode.window.showInformationMessage("Shift+4");
-        else if(pressedKey=="%") vscode.window.showInformationMessage("Shift+5");
-        else if(pressedKey=="^") vscode.window.showInformationMessage("Shift+6");
-        else if(pressedKey=="&") vscode.window.showInformationMessage("Shift+7");
-        else if(pressedKey=="*") vscode.window.showInformationMessage("Shift+8");
-        else if(pressedKey=="("||pressedKey=="()") vscode.window.showInformationMessage("Shift+9");
-        else if(pressedKey==")") vscode.window.showInformationMessage("Shift+0");
-        else vscode.window.showInformationMessage(pressedKey);
+        else if(pressedKey === "!") {
+            vscode.window.showInformationMessage("Shift+1");
+        }
+        else if(pressedKey === "@") {
+            vscode.window.showInformationMessage("Shift+2");
+        }
+        else if(pressedKey === "#") {
+            vscode.window.showInformationMessage("Shift+3");
+        }
+        else if(pressedKey === "$") {
+            vscode.window.showInformationMessage("Shift+4");
+        }
+        else if(pressedKey === "%") {
+            vscode.window.showInformationMessage("Shift+5");
+        }
+        else if(pressedKey === "^") {
+            vscode.window.showInformationMessage("Shift+6");
+        }
+        else if(pressedKey === "&") {
+            vscode.window.showInformationMessage("Shift+7");
+        }
+        else if(pressedKey === "*") {
+            vscode.window.showInformationMessage("Shift+8");
+        }
+        else if(pressedKey === "(" || pressedKey === "()") {
+            vscode.window.showInformationMessage("Shift+9");
+        }
+        else if(pressedKey === ")") {
+            vscode.window.showInformationMessage("Shift+0");
+        }
+        else {
+            vscode.window.showInformationMessage(pressedKey);
+        }
     };
-    EditorListener.prototype.dispose = function () {
+    editorListener.prototype.dispose = function () {
         this._disposable.dispose();
     };
-    return EditorListener;
+    return editorListener;
 }());
