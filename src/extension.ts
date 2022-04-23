@@ -2,6 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
+const live2d = require("./live2d");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -15,6 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
     let listener :any =  null;
     listener = listener || new editorListener();
     context.subscriptions.push(listener);
+    context.subscriptions.push(live2d.activateModify);
 }
 
 export function deactivate() {}
@@ -74,7 +76,3 @@ let editorListener: any = (function () {
     };
     return editorListener;
 }());
-
-let tempDiv = document.createElement('div');
-tempDiv.innerHTML = '<div id="Diana" style="${position}: ${moveX + 70}px; bottom: ${moveY + 20}px; opacity: ${opacity}; transition: opacity 300ms ease-in-out"><div id="waifu-tips" style="transform: translateX(-50%) scale(${modelWidth / 280})"></div><canvas id="live2d" width="${modelWidth}" height="${modelHeight}"></canvas></div>';
-// not finish
