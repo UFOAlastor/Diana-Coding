@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as path from 'path';
 
 const live2d = require("./live2d");
 // this method is called when your extension is activated
@@ -10,13 +11,20 @@ export function activate(context: vscode.ExtensionContext) {
 
 	let disposable = vscode.commands.registerCommand('diana-substitute.helloWorld', () => {
 		vscode.window.showInformationMessage('Hello!');
+        var filename: string;
+        if (require.main === undefined) {
+            filename = '';
+        } else {
+            filename = require.main.filename;
+        }
+        const base = path.dirname(filename);
+        
 	});
 	context.subscriptions.push(disposable);
-
-    let listener :any =  null;
-    listener = listener || new editorListener();
-    context.subscriptions.push(listener);
-    context.subscriptions.push(live2d.activateModify);
+    // let listener :any =  null;
+    // listener = listener || new editorListener();
+    // context.subscriptions.push(listener);
+    // context.subscriptions.push(live2d.activateModify);
 }
 
 export function deactivate() {}
