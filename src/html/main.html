@@ -30,116 +30,216 @@
             bottom:50px;
            
         }
+        .mainbody{
+            position:absolute;
+        }
+        .expression{
+            position:relative
+        }
      
     </style>
 </head>
 <body>
-    <div class="initial"><img src="Diana_H.png" width="350px" height="350px"></div>
+    <div class="initial"> 
+      <img class="mainbody" src="../model/主体贴图/Diana_初始图.png" width="350px" height="350px">
+     <img class="expression" src="../model/表情/3.png" width="350px" height="350px">
+     <img class="expression"src="../model/其他/前发.png" width="350px" height="350px">
+     <img class="expression" src="../model/其他/Diana_脸部.png"  width="350px" height="350px">
+   </div>
     <script>
+        var j=0;
+        var expression=document.querySelector('.expression');
+        var fader = setInterval(function() {
+            j++;
+            expression.src="../model/表情/"+j+".png" ;  
+        if(j==3)
+        j=1;    
+        }, 3000);
         var image=document.querySelector('img');
-        document.addEventListener('keyup',function(e){
-           
+        document.addEventListener('keyup',function(up){
+           if(up.key='a'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='b'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='c'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='d'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='e'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='f'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='g'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='h'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='i'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='j'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='k'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='l'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='m'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='n'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='o'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='p'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='q'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='r'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='s'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='t'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='u'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='v'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='w'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='x'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+           if(up.key='y'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+
+           if(up.key='z'){
+            image.src="../model/主体贴图/Diana_初始图.png";
+           }
+
+        })
+        document.addEventListener('keydown',function(e){
             if(e.key=='a'){
                 
-                image.src='Diana_A.png';
+                image.src='../model/主体贴图/Diana_A.png';
             }
             if(e.key=='b'){
                
-                image.src='Diana_B.png';
+                image.src='../model/主体贴图/Diana_B.png';
             }
             if(e.key=='c'){
                 
-                image.src='Diana_C.png';
+                image.src='../model/主体贴图/Diana_C.png';
             }
             if(e.key=='d'){
                 
-                image.src='Diana_D.png';
+                image.src='../model/主体贴图/Diana_D.png';
             }
             if(e.key=='e'){
              
-                image.src='Diana_E.png';
+                image.src='../model/主体贴图/Diana_E.png';
             }
             if(e.key=='f'){
                
-                image.src='Diana_F.png';
+                image.src='../model/主体贴图/Diana_F.png';
             }
             if(e.key=='g'){
                 
-                image.src='Diana_G.png';
+                image.src='../model/主体贴图/Diana_G.png';
             }
             if(e.key=='h'){
               
-                image.src='Diana_H.png';
+                image.src='../model/主体贴图/Diana_H.png';
             }
             if(e.key=='i'){
               
-              image.src='Diana_I.png';
+              image.src='../model/主体贴图/Diana_I.png';
           }
           if(e.key=='j'){
               
-              image.src='Diana_J.png';
+              image.src='../model/主体贴图/Diana_J.png';
           }
           if(e.key=='k'){
               
-              image.src='Diana_K.png';
+              image.src='../model/主体贴图/Diana_K.png';
           }
           if(e.key=='l'){
               
-              image.src='Diana_L.png';
+              image.src='../model/主体贴图/Diana_L.png';
           }
           if(e.key=='m'){
               
-              image.src='Diana_M.png';
+              image.src='../model/主体贴图/Diana_M.png';
           }
           if(e.key=='n'){
               
-              image.src='Diana_N.png';
+              image.src='../model/主体贴图/Diana_N.png';
           }
           if(e.key=='o'){
               
-              image.src='Diana_O.png';
+              image.src='../model/主体贴图/Diana_O.png';
           }
           if(e.key=='p'){
               
-              image.src='Diana_P.png';
+              image.src='../model/主体贴图/Diana_P.png';
           }
           if(e.key=='q'){
               
-              image.src='Diana_Q.png';
+              image.src='../model/主体贴图/Diana_Q.png';
           }
           if(e.key=='r'){
               
-              image.src='Diana_R.png';
+              image.src='../model/主体贴图/Diana_R.png';
           }
           if(e.key=='s'){
               
-              image.src='Diana_S.png';
+              image.src='../model/主体贴图/Diana_S.png';
           }
           if(e.key=='t'){
               
-              image.src='Diana_T.png';
+              image.src='../model/主体贴图/Diana_T.png';
           }
           if(e.key=='u'){
               
-              image.src='Diana_U.png';
+              image.src='../model/主体贴图/Diana_U.png';
           }
           if(e.key=='v'){
               
-              image.src='Diana_v.png';
+              image.src='../model/主体贴图/Diana_v.png';
           }
           if(e.key=='w'){
               
-              image.src='Diana_W.png';
+              image.src='../model/主体贴图/Diana_W.png';
           }if(e.key=='x'){
               
-              image.src='Diana_X.png';
+              image.src='../model/主体贴图/Diana_X.png';
           }if(e.key=='y'){
               
-              image.src='Diana_Y.png';
+              image.src='../model/主体贴图/Diana_Y.png';
           }
           if(e.key=='z'){
               
-              image.src='Diana_Z.png';
+              image.src='../model/主体贴图/Diana_Z.png';
           }
         })
     </script>
