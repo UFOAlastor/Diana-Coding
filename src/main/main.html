@@ -73,11 +73,11 @@
         move();
     </script>
     <div class="initial">
-        <img class="mainbody" src="./model/Main/Diana_初始图.png" width="350px" height="350px">
+        <img class="mainbody" src="./model/Main/Diana_Initial.png" width="350px" height="350px">
         <img class="frame" src="./model/Other/Letter_border.png" width="350px" height="350px">
-        <img class="face" src="./model/Other/Diana_脸部.png" width="350px" height="350px">
-        <img class="expression" src="./model/expression/3.png" width="350px" height="350px">
-        <img class="hair" src="./model/Other/Diana_前发.png" width="350px" height="350px">
+        <img class="face" src="./model/Other/Diana_Face.png" width="350px" height="350px">
+        <img class="expression" src="./model/Expression/3.png" width="350px" height="350px">
+        <img class="hair" src="./model/Other/Diana_FrontHair.png" width="350px" height="350px">
         <img class="talking" src="./model/Chat/想然然了没有呀.png" width="350px" height="350px">
     </div>
     <script>
@@ -88,17 +88,17 @@
         talk.onclick = function () {
             talking.style.display = 'block';
             talking.src = "./model/Chat/有然然陪着你呢.png"
-            expression.src = "./model/expression/Mua.png"
+            expression.src = "./model/Expression/Mua.png"
         }
 
         talk.addEventListener('mouseenter', function () {
             talking.style.display = 'block';
             talking.src = "./model/Chat/和我一起打代码吧.png";
-            expression.src = "./model/expression/星星眼.png"
+            expression.src = "./model/Expression/星星眼.png"
         })
         var fader = setInterval(function () {
             j++;
-            expression.src = "./model/expression/" + j + ".png";
+            expression.src = "./model/Expression/" + j + ".png";
             if (j == 4)
                 j = 1;
         }, 3000);
@@ -112,109 +112,109 @@
         var frame = document.querySelector('.frame');
         document.addEventListener('keyup', function (up) {
             if (up.key == 'a' || up.key == 'A') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'b' || up.key == 'B') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'c' || up.key == 'C') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'd' || up.key == 'D') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'e' || up.key == 'E') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'f' || up.key == 'F') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'g' || up.key == 'G') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'h' || up.key == 'H') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'i' || up.key == 'I') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'block';
             }
             if (up.key == 'j' || up.key == 'J') {
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
                 frame.style.display = 'none';
             }
             if (up.key == 'k' || up.key == 'K') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'l' || up.key == 'L') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'm' || up.key == 'M') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'n' || up.key == 'N') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'o' || up.key == 'O') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'p' || up.key == 'P') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'q' || up.key == 'Q') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'r' || up.key == 'R') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 's' || up.key == 'S') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 't' || up.key == 'T') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'u' || up.key == 'U') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'v' || up.key == 'V') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'w' || up.key == 'W') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'x' || up.key == 'X') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
             if (up.key == 'y' || up.key == 'Y') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
 
             if (up.key == 'z' || up.key == 'Z') {
                 frame.style.display = 'none';
-                image.src = "./model/Main/Diana_初始图.png";
+                image.src = "./model/Main/Diana_Initial.png";
             }
 
         })
