@@ -72,17 +72,19 @@
         var j = 0; 
         var talking = document.querySelector('.talking');
         var talk=document.querySelector('div');
+        var expression=document.querySelector('.expression')
         talk.onclick=function(){
             talking.style.display='block';
             talking.src="../model/对话/有然然陪着你呢.png"
+            expression.src="../model/表情/Mua.png"
         }
        
        talk.addEventListener('mouseenter',function(){
         talking.style.display='block';   
         talking.src="../model/对话/和我一起打代码吧.png";
-
+        expression.src="../model/表情/星星眼.png"
        })
-        var fader = setInterval(function () {
+        var fader = setInterval(function() {
             j++;
             expression.src = "../model/表情/" + j + ".png";
             if (j == 4)
@@ -94,9 +96,7 @@
           talking.style.display='none'
         }, 3000);
         var image = document.querySelector('.mainbody');
-        image.onclick=function(){
-            alert("sf");
-        }
+        
         var frame=document.querySelector('.frame');
         document.addEventListener('keyup', function (up) {
             if (up.key = 'a') {
