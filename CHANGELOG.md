@@ -1,9 +1,2 @@
-# Change Log
-
-All notable changes to the "diana-substitute" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+## ver0.1.0
+可初步使用，仅对26个字母检测，后续添加其他按键
