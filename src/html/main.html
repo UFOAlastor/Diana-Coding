@@ -47,6 +47,13 @@
         .hair {
             position: absolute;
         }
+        .talking{
+            position:absolute;
+            
+        }
+        .frame{
+            position:absolute;
+        }
 
     </style>
 </head>
@@ -54,50 +61,71 @@
 <body>
     <div class="initial">
         <img class="mainbody" src="../model/主体贴图/Diana_初始图.png" width="350px" height="350px">
+        <img class="frame" src="../model/其他/字母边框.png" width="350px" height="350px">
         <img class="face" src="../model/其他/Diana_脸部.png" width="350px" height="350px">
-        <img class="expression" src="../model/表情/3.png" width="350px" height="350px">
+        <img class="expression" src="../model/表情/3.png" onclick="change()" width="350px" height="350px">
         <img class="hair" src="../model/其他/Diana_前发.png" width="350px" height="350px">
+        <img class="talking" src="../model/对话/想然然了没有呀.png" width="350px" height="350px">
     </div>
     <script>
         var j = 0;
         var expression = document.querySelector('.expression');
+        function change(){
+            alert("fsdf");
+            expression.src = "../model/星星眼.png";
+        }
         var fader = setInterval(function () {
             j++;
             expression.src = "../model/表情/" + j + ".png";
             if (j == 3)
                 j = 1;
         }, 3000);
+        var talking = document.querySelector('.talking');
+        var fader2 = setInterval(function () {
+          talking.style.display='none'
+        }, 3000);
         var image = document.querySelector('img');
+        var frame=document.querySelector('.frame');
         document.addEventListener('keyup', function (up) {
             if (up.key = 'a') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'b') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'c') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'd') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'e') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'f') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'g') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'h') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'i') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='block';
             }
             if (up.key = 'j') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
+                frame.style.display='none';
             }
             if (up.key = 'k') {
                 image.src = "../model/主体贴图/Diana_初始图.png";
@@ -154,22 +182,27 @@
             if (e.key == 'a') {
 
                 image.src = '../model/主体贴图/Diana_A.png';
+                frame.style.display='block';
             }
             if (e.key == 'b') {
 
                 image.src = '../model/主体贴图/Diana_B.png';
+                frame.style.display='block';
             }
             if (e.key == 'c') {
 
                 image.src = '../model/主体贴图/Diana_C.png';
+                frame.style.display='block';
             }
             if (e.key == 'd') {
 
                 image.src = '../model/主体贴图/Diana_D.png';
+                frame.style.display='block';
             }
             if (e.key == 'e') {
 
                 image.src = '../model/主体贴图/Diana_E.png';
+                frame.style.display='block';
             }
             if (e.key == 'f') {
 
