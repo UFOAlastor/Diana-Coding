@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const fs = require("fs");
+const originalHtml_1 = require("./originalHtml");
 const base = process.cwd();
 // 文件路径
 const filePath = path.join(base, 'resources', 'app', 'out', 'vs', 'code', 'electron-browser', 'workbench', 'workbench.js');
@@ -16,6 +17,11 @@ function main() {
         content = clearCssContent(content);
         saveContent(content);
         removeFiles(path.join(base, 'vs', 'code', 'electron-browser', 'workbench', 'live2d'));
+        removeFiles(path.join(base, 'vs', 'code', 'electron-browser', 'workbench', 'models'));
+        // 还原HTML
+        let originalHtml = originalHtml_1.default().replace(/\s*$/, '');
+        const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'workbench.html');
+        fs.writeFileSync(htmlPath, originalHtml, 'utf-8');
         return true;
     }
     catch (ex) {
@@ -40,7 +46,6 @@ function clearCssContent(content) {
     var re = new RegExp("\\/\\*ext-" + extName + "-start\\*\\/[\\s\\S]*?\\/\\*ext-" + extName + "-end\\*" + "\\/", "g");
     content = content.replace(re, '');
     content = content.replace(/\s*$/, '');
-    content += '\n';
     return content;
 }
 /**

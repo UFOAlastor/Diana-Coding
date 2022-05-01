@@ -9,10 +9,8 @@ class Main {
     static watch() {
         const base = path.dirname(require.main.filename);
         const filePath = path.join(base, 'vs', 'code', 'electron-browser', 'workbench', 'workbench.js');
-        const configName = 'vscode-live2d-asoul';
-        const extName = "TheSecondAkari-vscode-live2d";
-        let DomApi = new Dom_1.Dom(configName, filePath, version_1.default, extName);
-        Main.Instance = DomApi;
+        const extName = "vscode-live2d";
+        let DomApi = new Dom_1.Dom(extName, filePath, version_1.default, extName);
         return vscode.workspace.onDidChangeConfiguration(() => DomApi.install());
     }
 }

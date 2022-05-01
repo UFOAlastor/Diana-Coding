@@ -7,6 +7,8 @@ const fs = require("fs");
 const FileType_1 = require("./FileType");
 const vsHelp_1 = require("./vsHelp");
 const getJs_1 = require("./getJs");
+const allowScript_1 = require("./allowScript");
+const originalHtml_1 = require("./originalHtml");
 class Dom {
     //初始化参数
     constructor(configName, filePath, version, extName) {
@@ -18,44 +20,10 @@ class Dom {
         let firstload = this.checkFirstload(); // 是否初次加载插件
         let fileType = this.getFileType(); // 文件目前状态
         // 如果是第一次加载插件，或者旧版本
-        if (firstload || fileType === FileType_1.default.isOld) {
-            this.generateResources();
-        }
-    }
-    /**
-     * 生成资源文件到特定目录--live2d的内容，增加 js 文件处理代码
-     *
-     * @public
-     * @param {boolean} [notice] 是否需要结果通知
-     * @returns {void}
-     */
-    generateResources(notice) {
-        try {
+        if (firstload || fileType === FileType_1.default.isOld || fileType === FileType_1.default.empty) {
             const base = path.dirname(require.main.filename);
-            copy(path.join(__dirname, '../../res/'), path.join(base, 'vs', 'code', 'electron-browser', 'workbench'));
+            copy(path.join(__dirname, '../res/assets/'), path.join(base, 'vs', 'code', 'electron-browser', 'workbench'));
             this.install(true);
-            notice && vsHelp_1.default.showInfo('资源文件配置成功');
-        }
-        catch (e) {
-            notice && vsHelp_1.default.showInfo('资源文件配置出错:' + e.toString());
-        }
-    }
-    /**
-     * 移除该插件所有依赖
-     *
-     * @public
-     * @param {boolean} [notice] 是否需要结果通知
-     * @returns {void}
-     */
-    removeResources(notice) {
-        try {
-            const base = path.dirname(require.main.filename);
-            removeFiles(path.join(base, 'vs', 'code', 'electron-browser', 'workbench', 'live2d'));
-            this.uninstall();
-            notice && vsHelp_1.default.showInfoRestart('资源文件移除成功');
-        }
-        catch (e) {
-            notice && vsHelp_1.default.showInfo('资源文件移除出错:' + e.toString());
         }
     }
     /**
@@ -72,7 +40,7 @@ class Dom {
         if (!refresh && JSON.stringify(lastConfig) === JSON.stringify(config)) {
             return;
         }
-        // 之后操作有两种：1.初次加载  2.配置文件改变
+        // 之后操作有两种：1.初次加载  2.配置文件改变 
         // 2.两次配置均为，未启动插件
         if (!lastConfig.enabled && !config.enabled) {
             return;
@@ -87,12 +55,24 @@ class Dom {
         }
         // 5.hack 样式
         // 自定义的样式内容
-        let content = (0, getJs_1.default)(config, this.extName, this.version).replace(/\s*$/, ''); // 去除末尾空白
+        // let content = getJs_1.default(config, this.extName, this.version).replace(/\s*$/, ''); // 去除末尾空白
+        let content = '';
+        const JsFile = fs.readFileSync('../main/main.html', 'utf-8').split(/\r?\n/);
+        content += '/*ext-' + this.extName + '-start*/\n';
+        content += '/*ext.' + this.extName + '.ver.' + version + '*/\n';
+        JsFile.forEach((line) => {
+            content += 'document.writeln("' + line + '");\n';
+        });
+        content += '/*ext-' + this.extName + '-end*/';
         // 添加代码到文件中，并尝试删除原来已经添加的
         let newContent = this.getContent();
         newContent = this.clearJSContent(newContent);
         newContent += content;
         this.saveContent(newContent);
+        // 设置新的HTML
+        let newHTML = allowScript_1.default().replace(/\s*$/, '');
+        const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'workbench.html');
+        fs.writeFileSync(htmlPath, newHTML, 'utf-8');
         vsHelp_1.default.showInfoRestart(this.extName + ' 已更新配置，请重新启动！');
     }
     /**
@@ -122,7 +102,6 @@ class Dom {
         var re = new RegExp("\\/\\*ext-" + this.extName + "-start\\*\\/[\\s\\S]*?\\/\\*ext-" + this.extName + "-end\\*" + "\\/", "g");
         content = content.replace(re, '');
         content = content.replace(/\s*$/, '');
-        content += '\n';
         return content;
     }
     /**
@@ -135,6 +114,10 @@ class Dom {
             let content = this.getContent();
             content = this.clearJSContent(content);
             this.saveContent(content);
+            // 还原HTML
+            let originalHtml = originalHtml_1.default().replace(/\s*$/, '');
+            const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'workbench.html');
+            fs.writeFileSync(htmlPath, originalHtml, 'utf-8');
             return true;
         }
         catch (ex) {
@@ -148,7 +131,7 @@ class Dom {
      * @returns {boolean} 是否初次加载
      */
     checkFirstload() {
-        const configPath = path.join(__dirname, '../../res/live2d/config.json');
+        const configPath = path.join(__dirname, '../res/config.json');
         let info = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
         if (info.firstload) {
             // 提示
@@ -174,8 +157,8 @@ class Dom {
             return FileType_1.default.empty;
         }
         // hack 过的旧版本
-        let version = jsContent.match(new RegExp(`ext\\.${this.extName}\\.ver\\.(\\d+\\.\\d+\\.\\d+)`));
-        if (version && this.version > version[1]) {
+        let ifVerOld = !~jsContent.indexOf(`/*ext.${this.extName}.ver.${this.version}*/`);
+        if (ifVerOld) {
             return FileType_1.default.isOld;
         }
         // hack 过的新版本
@@ -210,33 +193,11 @@ function checkDirectory(src, dst, callback) {
     fs.access(dst, fs.constants.F_OK, (err) => {
         if (err) {
             fs.mkdirSync(dst);
-            callback && callback(src, dst);
+            callback(src, dst);
         }
         else {
-            callback && callback(src, dst);
+            callback(src, dst);
         }
     });
-}
-/**
-* 删除文件内容
-*
-* @private
-* @param {string} path
-*/
-function removeFiles(path) {
-    var files = [];
-    if (fs.existsSync(path)) {
-        files = fs.readdirSync(path);
-        files.forEach(function (file, index) {
-            var curPath = path + "/" + file;
-            if (fs.statSync(curPath).isDirectory()) { // recurse
-                removeFiles(curPath);
-            }
-            else { // delete file
-                fs.unlinkSync(curPath);
-            }
-        });
-        fs.rmdirSync(path);
-    }
 }
 //# sourceMappingURL=Dom.js.map
