@@ -14,12 +14,14 @@
             right: 5%;
             bottom: 15%;
             z-index: 999;
+            
         }
 
         .image {
             position: absolute;
             left: 200px;
             z-index: 999;
+            pointer-events: none;
         }
 
         .change {
@@ -31,32 +33,60 @@
             right: 50px;
             bottom: 50px;
             z-index: 999;
+            pointer-events: none;
         }
 
         .mainbody {
             position: absolute;
             z-index: 999;
+            pointer-events: none;
         }
 
         .expression {
             position: absolute;
             z-index: 999;
+            pointer-events: none;
         }
 
         .face {
             position: absolute;
             z-index: 999;
+            pointer-events: none;
         }
 
         .hair {
             position: absolute;
             z-index: 999;
+            pointer-events: none;
         }
 
         .talking {
             position: absolute;
             z-index: 999;
+            pointer-events: none;
         }
+        .specialkey1{
+            position: absolute;
+            z-index: 999;
+            pointer-events: none;
+            display: none;
+           
+        }
+        .specialkey2{
+            position: absolute;
+            z-index: 999;
+            pointer-events: none;
+            display:none;
+            
+        }
+        .specialkey3{
+            position: absolute;
+            z-index: 999;
+            pointer-events: none;
+            display:none;
+          
+        }
+
     </style>
 </head>
 
@@ -67,6 +97,9 @@
         <img class="face" src="./model/Other/Diana_Face.png" width="350px" height="350px">
         <img class="expression" src="./model/Expression/3.png" width="350px" height="350px">
         <img class="hair" src="./model/Other/Diana_FrontHair.png" width="350px" height="350px">
+        <img class="specialkey1" src="./model/Main/Diana_Shift.png"       width="350px" height="350px">
+        <img class="specialkey2" src="./model/Main/Diana_CapsLock.png"       width="350px" height="350px">
+        <img class="specialkey3" src="./model/Main/Diana_Ctrl.png"  width="350px" height="350px">
         <img class="talking" src="./model/Chat/想然然了没有呀.png" width="350px" height="350px">
     </div>
 
@@ -120,8 +153,23 @@
 
         document.addEventListener('keyup', function (up) {
             image.src = "./model/Main/Diana_Initial.png";
-
+            if(up.key=="CapsLock"){
+                    specialkey2.style.display="none";
+                   
+            }
+            if(up.key=="Shift"){
+                    specialkey1.style.display="none";
+                    
+            }
+            if(up.key=="Control"){
+                
+                specialkey3.style.display="none";
+               
+        }
         })
+        var specialkey1=document.querySelector('.specialkey1');
+        var specialkey2=document.querySelector('.specialkey2');
+        var specialkey3=document.querySelector('.specialkey3');
         document.addEventListener('keydown', function (e) {
             if (e.key == 'a' || e.key == 'A') {
                 image.src = './model/Main/Diana_A.png';
@@ -209,6 +257,19 @@
                     if(e.key==i)
                     image.src='./model/Main/Diana_'+i+'.png';
                 }
+            }
+            if(e.key=="CapsLock"){
+                    specialkey2.style.display="block";
+                   
+            }
+            if(e.key=="Shift"){
+                    specialkey1.style.display="block";
+                    
+            }
+            if(e.key=="Control"){
+                
+                    specialkey3.style.display="block";
+                   
             }
         })
     </script>
