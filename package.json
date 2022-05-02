@@ -1,8 +1,8 @@
 {
   "name": "diana-substitute",
 	"displayName": "Diana-Substitute",
-	"description": "",
-	"version": "0.0.1",
+	"description": "然然真可爱，陪你打代码",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
