@@ -2,7 +2,8 @@
   "name": "diana-substitute",
 	"displayName": "Diana-Substitute",
 	"description": "",
-	"version": "0.0.1",
+	"publisher": "嘉然我的嘉然",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
@@ -10,14 +11,26 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:diana-substitute.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
+	"keywords": [
+		"vscode看板娘",
+		"kanbanniang",
+		"live2d",
+		"diana"
+	],
 	"contributes": {
-		"commands": [
+		"configuration":[
 			{
-				"command": "diana-substitute.helloWorld",
-				"title": "Hello World"
+				"title": "配置",
+				"properties": {
+					"diana-substitute.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "是否启动"
+					}
+				}
 			}
 		]
 	},
