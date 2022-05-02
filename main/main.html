@@ -201,6 +201,15 @@
             else if (e.key == 'z' || e.key == 'Z') {
                 image.src = './model/Main/Diana_Z.png';
             }
+            else if(e.key=='Backspace'){
+                image.src = './model/Main/Diana_Backspace.png';
+            }
+            else{
+                for(var i=0;i<9;i++){
+                    if(e.key==i)
+                    image.src='./model/Main/Diana_'+i+'.png';
+                }
+            }
         })
     </script>
 </body>
