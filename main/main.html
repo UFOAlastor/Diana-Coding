@@ -75,7 +75,7 @@
         var talking = document.querySelector('.talking');
         var talk = document.querySelector('.initial');
         var expression = document.querySelector('.expression')
-        
+
         // 鼠标点击触发
         talk.onclick = function () {
             talking.style.display = 'block';
@@ -120,7 +120,7 @@
 
         document.addEventListener('keyup', function (up) {
             image.src = "./model/Main/Diana_Initial.png";
-        
+
         })
         document.addEventListener('keydown', function (e) {
             if (e.key == 'a' || e.key == 'A') {
@@ -205,7 +205,7 @@
                 image.src = './model/Main/Diana_Backspace.png';
             }
             else{
-                for(var i=0;i<9;i++){
+                for(var i=0;i<=9;i++){
                     if(e.key==i)
                     image.src='./model/Main/Diana_'+i+'.png';
                 }
