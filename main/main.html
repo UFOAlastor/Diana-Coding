@@ -92,22 +92,48 @@
 
 <body>
     <!-- 整体框架 -->
+    
     <div class="initial">
         <img class="mainbody" src="./model/Main/Diana_Initial.png" width="350px" height="350px">
         <img class="face" src="./model/Other/Diana_Face.png" width="350px" height="350px">
         <img class="expression" src="./model/Expression/3.png" width="350px" height="350px">
         <img class="hair" src="./model/Other/Diana_FrontHair.png" width="350px" height="350px">
         <img class="specialkey1" src="./model/Main/Diana_Shift.png"       width="350px" height="350px">
-        <img class="specialkey2" src="./model/Main/Diana_CapsLock.png"       width="350px" height="350px">
+        
         <img class="specialkey3" src="./model/Main/Diana_Ctrl.png"  width="350px" height="350px">
         <img class="talking" src="./model/Chat/想然然了没有呀.png" width="350px" height="350px">
     </div>
 
     <script>
+
         var j = 0;
         var talking = document.querySelector('.talking');
         var talk = document.querySelector('.initial');
         var expression = document.querySelector('.expression')
+       
+        // 移动位置
+        var odiv = document.querySelector('.initial');
+        odiv.onmousedown = function (ev) {
+        var event = window.event || ev;
+        var dx = event.clientX - odiv.offsetLeft; 
+        var dy = event.clientY - odiv.offsetTop;
+        console.log(event);
+        console.log(dy)
+    
+         document.onmousemove = function (ev) {
+        var event = window.event || ev;
+        odiv.style.left = event.clientX - dx + 'px';
+        odiv.style.top = event.clientY - dy + 'px';
+        }
+        document.onmouseup = function () {
+        document.onmousemove = null;
+        document.onmouseup = null;
+
+        }
+    }
+
+
+      
 
         // 鼠标点击触发
         talk.onclick = function () {
@@ -153,10 +179,7 @@
 
         document.addEventListener('keyup', function (up) {
             image.src = "./model/Main/Diana_Initial.png";
-            if(up.key=="CapsLock"){
-                    specialkey2.style.display="none";
-                   
-            }
+        
             if(up.key=="Shift"){
                     specialkey1.style.display="none";
                     
@@ -258,10 +281,7 @@
                     image.src='./model/Main/Diana_'+i+'.png';
                 }
             }
-            if(e.key=="CapsLock"){
-                    specialkey2.style.display="block";
-                   
-            }
+           
             if(e.key=="Shift"){
                     specialkey1.style.display="block";
                     
