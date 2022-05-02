@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diana</title>
-
+    <!-- 样式 -->
     <style>
         .initial {
             display: flex;
@@ -52,7 +52,6 @@
             position: absolute;
             z-index: 999;
         }
-
         .talking {
             position: absolute;
             z-index: 999;
@@ -67,11 +66,7 @@
 </head>
 
 <body>
-    <script type="text/javascript" src="movement.js">
-    </script>
-    <script type="text/javascript">
-        move();
-    </script>
+    <!-- 整体框架 -->
     <div class="initial">
         <img class="mainbody" src="./model/Main/Diana_Initial.png" width="350px" height="350px">
         <img class="frame" src="./model/Other/Letter_border.png" width="350px" height="350px">
@@ -80,22 +75,27 @@
         <img class="hair" src="./model/Other/Diana_FrontHair.png" width="350px" height="350px">
         <img class="talking" src="./model/Chat/想然然了没有呀.png" width="350px" height="350px">
     </div>
+
     <script>
         var j = 0;
         var talking = document.querySelector('.talking');
         var talk = document.querySelector('.initial');
         var expression = document.querySelector('.expression')
+        
+        // 鼠标点击触发
         talk.onclick = function () {
             talking.style.display = 'block';
             talking.src = "./model/Chat/有然然陪着你呢.png"
             expression.src = "./model/Expression/Mua.png"
         }
-
+        // 鼠标移动触发
         talk.addEventListener('mouseenter', function () {
             talking.style.display = 'block';
             talking.src = "./model/Chat/和我一起打代码吧.png";
             expression.src = "./model/Expression/星星眼.png"
         })
+        
+        //表情切换
         var fader = setInterval(function () {
             j++;
             expression.src = "./model/Expression/" + j + ".png";
@@ -103,7 +103,7 @@
                 j = 1;
         }, 3000);
 
-
+        //清除对话框
         var fader2 = setInterval(function () {
             talking.style.display = 'none'
         }, 3000);
