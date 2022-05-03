@@ -1,21 +1,31 @@
 {
-    "name": "diana-substitute",
-	"displayName": "Diana-Substitute",
+    "name": "diana-coding",
+	"displayName": "Diana-Coding",
 	"description": "然然真可爱，陪你打代码",
 	"publisher": "嘉然我的嘉然",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
 	"categories": [
 		"Other"
 	],
+    "icon": "images/logo.png",
 	"keywords": [
 		"vscode看板娘",
 		"kanbanniang",
 		"live2d",
-		"diana"
+		"diana",
+        "A-soul",
+        "a-soul",
+        "asoul",
+        "代打"
 	],
+    "license": "./LICENSE.md",
+    "repository": {
+        "type": "coding",
+        "url": "https://e.coding.net/zander-alastor/Diana-Substitute/Diana-Substitute.git"
+    },
 	"activationEvents": [
 		"*"
 	],
@@ -37,7 +47,7 @@
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
+		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
         "@types/vscode": "^1.66.0",
