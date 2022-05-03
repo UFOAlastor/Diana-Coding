@@ -22,10 +22,6 @@
         "代打"
 	],
     "license": "./LICENSE.md",
-    "repository": {
-        "type": "coding",
-        "url": "https://e.coding.net/zander-alastor/Diana-Substitute/Diana-Substitute.git"
-    },
 	"activationEvents": [
 		"*"
 	],

@@ -34,6 +34,15 @@
     - windows可尝试使用以管理者身份运行vscode
     - mac 请留意是否将vscode从【下载】移动到【应用程序】里
     - mac 可通过【检查vscode是否可以更新】来判断软件是否处于可写的硬盘中
+    
+    删除时请注意：
+    - 先进入插件设置取消勾选“启动”
+    - 直接删除插件会导致注入vscode的js代码未被删除
+    - 如果已经直接删除插件，嘉然还存在于界面上，请进入以下路径手动删除：
+    C:\Users\your_id\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\code\electron-browser\workbench\
+    其中model文件夹是注入的文件夹，
+    同时workbench.js中被注释包裹的部分也是注入的代码，
+    全部删除后就可以恢复正常的vscode界面
 
 
 
