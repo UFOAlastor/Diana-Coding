@@ -143,16 +143,17 @@
             expression.src = "./model/Expression/closeEye.png";
             setTimeout(function () {
                 expression.src = "./model/Expression/openEye.png";
-            },321);
+            },345);
         },5678);
 
         //表情切换
         var fader1 = setInterval(function () {
-            j++;
+            var d = new Date();
+            j = (d.getTime()%4) + 1;
             expression.src = "./model/Expression/" + j + ".png";
             if (j == 4)
                 j = 1;
-        }, 91000);
+        }, 9876);
 
         //喝水提醒
         var fader2 = setInterval(function () {
