@@ -11,10 +11,9 @@
             color: red;
             width: 240px;
             height: 240px;
-            right: 5%;
+            right: 10%;
             bottom: 15%;
             z-index: 999;
-
         }
 
         .image {
@@ -65,28 +64,30 @@
             z-index: 999;
             pointer-events: none;
         }
-        .specialkey1{
+
+        .specialkey1 {
             position: absolute;
             z-index: 999;
             pointer-events: none;
             display: none;
 
         }
-        .specialkey2{
+
+        .specialkey2 {
             position: absolute;
             z-index: 999;
             pointer-events: none;
-            display:none;
+            display: none;
 
         }
-        .specialkey3{
+
+        .specialkey3 {
             position: absolute;
             z-index: 999;
             pointer-events: none;
-            display:none;
+            display: none;
 
         }
-
     </style>
 </head>
 
@@ -98,14 +99,13 @@
         <img class="face" src="./model/Other/Diana_Face.png" width="350px" height="350px">
         <img class="expression" src="./model/Expression/3.png" width="350px" height="350px">
         <img class="hair" src="./model/Other/Diana_FrontHair.png" width="350px" height="350px">
-        <img class="specialkey1" src="./model/Main/Diana_Shift.png"       width="350px" height="350px">
+        <img class="specialkey1" src="./model/Main/Diana_Shift.png" width="350px" height="350px">
 
-        <img class="specialkey3" src="./model/Main/Diana_Ctrl.png"  width="350px" height="350px">
+        <img class="specialkey3" src="./model/Main/Diana_Ctrl.png" width="350px" height="350px">
         <img class="talking" src="./model/Chat/missU.png" width="350px" height="350px">
     </div>
 
     <script>
-
         var j = 0;
         var talking = document.querySelector('.talking');
         var talk = document.querySelector('.initial');
@@ -114,27 +114,23 @@
         // 移动位置
         var odiv = document.querySelector('.initial');
         odiv.onmousedown = function (ev) {
-        var event = window.event || ev;
-        var dx = event.clientX - odiv.offsetLeft;
-        var dy = event.clientY - odiv.offsetTop;
-        console.log(event);
-        console.log(dy)
+            var event = window.event || ev;
+            var dx = event.clientX - odiv.offsetLeft;
+            var dy = event.clientY - odiv.offsetTop;
+            console.log(event);
+            console.log(dy)
 
-         document.onmousemove = function (ev) {
-        var event = window.event || ev;
-        odiv.style.left = event.clientX - dx + 'px';
-        odiv.style.top = event.clientY - dy + 'px';
+            document.onmousemove = function (ev) {
+                var event = window.event || ev;
+                odiv.style.left = event.clientX - dx + 'px';
+                odiv.style.top = event.clientY - dy + 'px';
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+
+            }
         }
-        document.onmouseup = function () {
-        document.onmousemove = null;
-        document.onmouseup = null;
-
-        }
-    }
-
-
-
-
         // 鼠标点击触发
         talk.onclick = function () {
             talking.style.display = 'block';
@@ -168,18 +164,18 @@
             talking.style.display = 'block';
             talking.src = "./model/Chat/stand.png";
 
-        },360000);
+        }, 360000);
 
         //休息提醒
         var fader3 = setInterval(function () {
             talking.style.display = 'block';
             talking.src = "./model/Chat/rest.png";
 
-        },720000);
+        }, 720000);
 
         //清除对话框
         var fader4 = setInterval(function () {
-            talking.style.display = 'none'
+            talking.style.display = 'none';
         }, 3000);
 
         var image = document.querySelector('.mainbody');
@@ -187,115 +183,85 @@
         document.addEventListener('keyup', function (up) {
             image.src = "./model/Main/Diana_Initial.png";
 
-            if(up.key=="Shift"){
-                    specialkey1.style.display="none";
-
+            if (up.key == "Shift") {
+                specialkey1.style.display = "none";
             }
-            if(up.key=="Control"){
-
-                specialkey3.style.display="none";
-
-        }
+            if (up.key == "Control") {
+                specialkey3.style.display = "none";
+            }
         })
-        var specialkey1=document.querySelector('.specialkey1');
-        var specialkey2=document.querySelector('.specialkey2');
-        var specialkey3=document.querySelector('.specialkey3');
+        var specialkey1 = document.querySelector('.specialkey1');
+        var specialkey2 = document.querySelector('.specialkey2');
+        var specialkey3 = document.querySelector('.specialkey3');
         document.addEventListener('keydown', function (e) {
             if (e.key == 'a' || e.key == 'A') {
                 image.src = './model/Main/Diana_A.png';
-            }
-            else if (e.key == 'b' || e.key == 'B') {
+            } else if (e.key == 'b' || e.key == 'B') {
                 image.src = './model/Main/Diana_B.png';
-            }
-            else if (e.key == 'c' || e.key == 'C') {
+            } else if (e.key == 'c' || e.key == 'C') {
                 image.src = './model/Main/Diana_C.png';
-            }
-            else if (e.key == 'd' || e.key == 'D') {
+            } else if (e.key == 'd' || e.key == 'D') {
                 image.src = './model/Main/Diana_D.png';
-            }
-            else if (e.key == 'e' || e.key == 'E') {
+            } else if (e.key == 'e' || e.key == 'E') {
                 image.src = './model/Main/Diana_E.png';
-            }
-            else if (e.key == 'f' || e.key == 'F') {
+            } else if (e.key == 'f' || e.key == 'F') {
                 image.src = './model/Main/Diana_F.png';
-            }
-            else if (e.key == 'g' || e.key == 'G') {
+            } else if (e.key == 'g' || e.key == 'G') {
                 image.src = './model/Main/Diana_G.png';
-            }
-            else if (e.key == 'h' || e.key == 'H') {
+            } else if (e.key == 'h' || e.key == 'H') {
                 image.src = './model/Main/Diana_H.png';
-            }
-            else if (e.key == 'i' || e.key == 'I') {
+            } else if (e.key == 'i' || e.key == 'I') {
                 image.src = './model/Main/Diana_I.png';
-            }
-            else if (e.key == 'j' || e.key == 'J') {
+            } else if (e.key == 'j' || e.key == 'J') {
                 image.src = './model/Main/Diana_J.png';
-            }
-            else if (e.key == 'k' || e.key == 'K') {
+            } else if (e.key == 'k' || e.key == 'K') {
                 image.src = './model/Main/Diana_K.png';
-            }
-            else if (e.key == 'l' || e.key == 'L') {
+            } else if (e.key == 'l' || e.key == 'L') {
                 image.src = './model/Main/Diana_L.png';
-            }
-            else if (e.key == 'm' || e.key == 'M') {
+            } else if (e.key == 'm' || e.key == 'M') {
                 image.src = './model/Main/Diana_M.png';
-            }
-            else if (e.key == 'n' || e.key == 'N') {
+            } else if (e.key == 'n' || e.key == 'N') {
                 image.src = './model/Main/Diana_N.png';
-            }
-            else if (e.key == 'o' || e.key == 'O') {
+            } else if (e.key == 'o' || e.key == 'O') {
                 image.src = './model/Main/Diana_O.png';
-            }
-            else if (e.key == 'p' || e.key == 'P') {
+            } else if (e.key == 'p' || e.key == 'P') {
                 image.src = './model/Main/Diana_P.png';
-            }
-            else if (e.key == 'q' || e.key == 'Q') {
+            } else if (e.key == 'q' || e.key == 'Q') {
                 image.src = './model/Main/Diana_Q.png';
-            }
-            else if (e.key == 'r' || e.key == 'R') {
+            } else if (e.key == 'r' || e.key == 'R') {
                 image.src = './model/Main/Diana_R.png';
-            }
-            else if (e.key == 's' || e.key == 'S') {
+            } else if (e.key == 's' || e.key == 'S') {
                 image.src = './model/Main/Diana_S.png';
-            }
-            else if (e.key == 't' || e.key == 'T') {
+            } else if (e.key == 't' || e.key == 'T') {
                 image.src = './model/Main/Diana_T.png';
-            }
-            else if (e.key == 'u' || e.key == 'U') {
+            } else if (e.key == 'u' || e.key == 'U') {
                 image.src = './model/Main/Diana_U.png';
-            }
-            else if (e.key == 'v' || e.key == 'V') {
+            } else if (e.key == 'v' || e.key == 'V') {
                 image.src = './model/Main/Diana_V.png';
-            }
-            else if (e.key == 'w' || e.key == 'W') {
+            } else if (e.key == 'w' || e.key == 'W') {
                 image.src = './model/Main/Diana_W.png';
-            }
-            else if (e.key == 'x' || e.key == 'X') {
+            } else if (e.key == 'x' || e.key == 'X') {
                 image.src = './model/Main/Diana_X.png';
-            }
-            else if (e.key == 'y' || e.key == 'Y') {
+            } else if (e.key == 'y' || e.key == 'Y') {
                 image.src = './model/Main/Diana_Y.png';
-            }
-            else if (e.key == 'z' || e.key == 'Z') {
+            } else if (e.key == 'z' || e.key == 'Z') {
                 image.src = './model/Main/Diana_Z.png';
-            }
-            else if(e.key=='Backspace'){
+            } else if (e.key == 'Backspace') {
                 image.src = './model/Main/Diana_Backspace.png';
-            }
-            else{
-                for(var i=0;i<=9;i++){
-                    if(e.key==i)
-                    image.src='./model/Main/Diana_'+i+'.png';
+            } else {
+                for (var i = 0; i <= 9; i++) {
+                    if (e.key == i)
+                        image.src = './model/Main/Diana_' + i + '.png';
                 }
             }
 
-            if(e.key=="Shift"){
-                    specialkey1.style.display="block";
+            if (e.key == "Shift") {
+                specialkey1.style.display = "block";
 
             }
-            if(e.key=="Control"){
+            if (e.key == "Control") {
 
-                    specialkey3.style.display="block";
+                specialkey3.style.display = "block";
 
             }
         })
