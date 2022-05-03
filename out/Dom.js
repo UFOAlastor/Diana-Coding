@@ -117,6 +117,10 @@ class Dom {
             // 还原HTML
             let originalHtml = originalHtml_1.default().replace(/\s*$/, '');
             const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'workbench.html');
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'movement.js'));
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'main.html'));
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'config.json'));
+            removeFiles(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'model'));
             fs.writeFileSync(htmlPath, originalHtml, 'utf-8');
             return true;
         }
@@ -200,4 +204,19 @@ function checkDirectory(src, dst, callback) {
         }
     });
 }
-//# sourceMappingURL=Dom.js.map
+function removeFiles(path) {
+    var files = [];
+    if (fs.existsSync(path)) {
+        files = fs.readdirSync(path);
+        files.forEach(function (file, index) {
+            var curPath = path + "/" + file;
+            if (fs.statSync(curPath).isDirectory()) { // recurse
+                removeFiles(curPath);
+            }
+            else { // delete file
+                fs.unlinkSync(curPath);
+            }
+        });
+        fs.rmdirSync(path);
+    }
+}
