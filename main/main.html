@@ -14,7 +14,7 @@
             right: 5%;
             bottom: 15%;
             z-index: 999;
-            
+
         }
 
         .image {
@@ -70,21 +70,21 @@
             z-index: 999;
             pointer-events: none;
             display: none;
-           
+
         }
         .specialkey2{
             position: absolute;
             z-index: 999;
             pointer-events: none;
             display:none;
-            
+
         }
         .specialkey3{
             position: absolute;
             z-index: 999;
             pointer-events: none;
             display:none;
-          
+
         }
 
     </style>
@@ -92,16 +92,16 @@
 
 <body>
     <!-- 整体框架 -->
-    
+
     <div class="initial">
         <img class="mainbody" src="./model/Main/Diana_Initial.png" width="350px" height="350px">
         <img class="face" src="./model/Other/Diana_Face.png" width="350px" height="350px">
         <img class="expression" src="./model/Expression/3.png" width="350px" height="350px">
         <img class="hair" src="./model/Other/Diana_FrontHair.png" width="350px" height="350px">
         <img class="specialkey1" src="./model/Main/Diana_Shift.png"       width="350px" height="350px">
-        
+
         <img class="specialkey3" src="./model/Main/Diana_Ctrl.png"  width="350px" height="350px">
-        <img class="talking" src="./model/Chat/想然然了没有呀.png" width="350px" height="350px">
+        <img class="talking" src="./model/Chat/missU.png" width="350px" height="350px">
     </div>
 
     <script>
@@ -110,16 +110,16 @@
         var talking = document.querySelector('.talking');
         var talk = document.querySelector('.initial');
         var expression = document.querySelector('.expression')
-       
+
         // 移动位置
         var odiv = document.querySelector('.initial');
         odiv.onmousedown = function (ev) {
         var event = window.event || ev;
-        var dx = event.clientX - odiv.offsetLeft; 
+        var dx = event.clientX - odiv.offsetLeft;
         var dy = event.clientY - odiv.offsetTop;
         console.log(event);
         console.log(dy)
-    
+
          document.onmousemove = function (ev) {
         var event = window.event || ev;
         odiv.style.left = event.clientX - dx + 'px';
@@ -133,19 +133,19 @@
     }
 
 
-      
+
 
         // 鼠标点击触发
         talk.onclick = function () {
             talking.style.display = 'block';
-            talking.src = "./model/Chat/有然然陪着你呢.png"
+            talking.src = "./model/Chat/together.png"
             expression.src = "./model/Expression/Mua.png"
         }
         // 鼠标移动触发
         talk.addEventListener('mouseenter', function () {
             talking.style.display = 'block';
-            talking.src = "./model/Chat/和我一起打代码吧.png";
-            expression.src = "./model/Expression/星星眼.png"
+            talking.src = "./model/Chat/coding.png";
+            expression.src = "./model/Expression/starEye.png"
         })
 
         //表情切换
@@ -159,16 +159,23 @@
         //喝水提醒
         var fader2 = setInterval(function () {
             talking.style.display = 'block';
-            talking.src = "./model/Chat/和我一起打代码吧.png";
+            talking.src = "./model/Chat/drink.png";
 
         }, 5400000);
 
         //站立提醒
         var fader3 = setInterval(function () {
             talking.style.display = 'block';
-            talking.src = "./model/Chat/和我一起打代码吧.png";
+            talking.src = "./model/Chat/stand.png";
 
         },360000);
+
+        //休息提醒
+        var fader3 = setInterval(function () {
+            talking.style.display = 'block';
+            talking.src = "./model/Chat/rest.png";
+
+        },720000);
 
         //清除对话框
         var fader4 = setInterval(function () {
@@ -179,15 +186,15 @@
 
         document.addEventListener('keyup', function (up) {
             image.src = "./model/Main/Diana_Initial.png";
-        
+
             if(up.key=="Shift"){
                     specialkey1.style.display="none";
-                    
+
             }
             if(up.key=="Control"){
-                
+
                 specialkey3.style.display="none";
-               
+
         }
         })
         var specialkey1=document.querySelector('.specialkey1');
@@ -281,15 +288,15 @@
                     image.src='./model/Main/Diana_'+i+'.png';
                 }
             }
-           
+
             if(e.key=="Shift"){
                     specialkey1.style.display="block";
-                    
+
             }
             if(e.key=="Control"){
-                
+
                     specialkey3.style.display="block";
-                   
+
             }
         })
     </script>

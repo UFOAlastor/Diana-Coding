@@ -1,34 +1,34 @@
 
-  
+
   function move(){
-    var j = 0; 
+    var j = 0;
     var talking = document.querySelector('.talking');
     var talk=document.querySelector('div');
     var expression=document.querySelector('.expression')
     talk.onclick=function(){
         talking.style.display='block';
-        talking.src="../model/对话/有然然陪着你呢.png"
-        expression.src="../model/表情/Mua.png"
+        talking.src="../model/Chat/together.png"
+        expression.src="../model/expression/Mua.png"
     }
-    
+
     talk.addEventListener('mouseenter',function(){
-    talking.style.display='block';   
-    talking.src="../model/对话/和我一起打代码吧.png";
-    expression.src="../model/表情/星星眼.png"
+    talking.style.display='block';
+    talking.src="../model/Chat/coding.png";
+    expression.src="../model/expression/starEye.png"
     })
     var fader = setInterval(function() {
         j++;
-        expression.src = "../model/表情/" + j + ".png";
+        expression.src = "../model/expression/" + j + ".png";
         if (j == 4)
             j = 1;
     }, 3000);
-    
-    
+
+
     var fader2 = setInterval(function () {
       talking.style.display='none'
     }, 3000);
     var image = document.querySelector('.mainbody');
-    
+
     var frame=document.querySelector('.frame');
     document.addEventListener('keyup', function (up) {
         if (up.key = 'a') {
@@ -131,61 +131,61 @@
             frame.style.display='none';
             image.src = "../model/主体贴图/Diana_初始图.png";
         }
-    
+
         if (up.key = 'z') {
             frame.style.display='none';
             image.src = "../model/主体贴图/Diana_初始图.png";
         }
-    
+
     })
     document.addEventListener('keydown', function (e) {
         if (e.key == 'a') {
-    
+
             image.src = '../model/主体贴图/Diana_A.png';
             frame.style.display='block';
         }
         if (e.key == 'b') {
-    
+
             image.src = '../model/主体贴图/Diana_B.png';
             frame.style.display='block';
         }
         if (e.key == 'c') {
-    
+
             image.src = '../model/主体贴图/Diana_C.png';
             frame.style.display='block';
         }
         if (e.key == 'd') {
-    
+
             image.src = '../model/主体贴图/Diana_D.png';
             frame.style.display='block';
         }
         if (e.key == 'e') {
-    
+
             image.src = '../model/主体贴图/Diana_E.png';
             frame.style.display='block';
         }
         if (e.key == 'f') {
-    
+
             image.src = '../model/主体贴图/Diana_F.png';
             frame.style.display='block';
         }
         if (e.key == 'g') {
-    
+
             image.src = '../model/主体贴图/Diana_G.png';
             frame.style.display='block';
         }
         if (e.key == 'h') {
-    
+
             image.src = '../model/主体贴图/Diana_H.png';
             frame.style.display='block';
         }
         if (e.key == 'i') {
-    
+
             image.src = '../model/主体贴图/Diana_I.png';
             frame.style.display='block';
         }
         if (e.key == 'j') {
-    
+
             image.src = '../model/主体贴图/Diana_J.png';
             frame.style.display='block';
         }
