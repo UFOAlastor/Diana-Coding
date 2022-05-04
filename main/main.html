@@ -114,7 +114,7 @@
         var j = 0;
         var talk = document.querySelector('.initial');
         var talking = document.querySelector('.talking');
-        var expression = document.querySelector('.expression')
+        var expression = document.querySelector('.expression');
 
         // 移动位置
         var odiv = document.querySelector('.initial');
@@ -123,7 +123,7 @@
             var dx = event.clientX - odiv.offsetLeft;
             var dy = event.clientY - odiv.offsetTop;
             console.log(event);
-            console.log(dy)
+            console.log(dy);
             document.onmousemove = function (ev) {
                 var event = window.event || ev;
                 odiv.style.left = event.clientX - dx + 'px';
@@ -281,13 +281,17 @@
                 image.src = './model/Main/Diana_zkh.png';
             } else if (e.key == ']') {
                 image.src = './model/Main/Diana_ykh.png';
-            } else if (e.key == '\\') {
+            }
+            else if (e.code == 'Backslash') {
                 image.src = './model/Main/Diana_xg.png';
-            } else if (e.key == ';') {
+            }
+            else if (e.key == ';') {
                 image.src = './model/Main/Diana_fh.png';
-            } else if (e.key == '\'') {
+            }
+            else if (e.code == 'Quote') {
                 image.src = './model/Main/Diana_yh.png';
-            } else if (e.key == ',') {
+            }
+            else if (e.key == ',') {
                 image.src = './model/Main/Diana_zk.png';
             } else if (e.key == '.') {
                 image.src = './model/Main/Diana_yk.png';
