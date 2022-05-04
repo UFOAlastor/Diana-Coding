@@ -213,6 +213,7 @@
         var specialkey1 = document.querySelector('.specialkey1');
         var specialkey2 = document.querySelector('.specialkey2');
         var specialkey3 = document.querySelector('.specialkey3');
+        var specialkey4 = document.querySelector('.specialkey4');
         document.addEventListener('keydown', function (e) {
             if (e.key == 'a' || e.key == 'A') {
                 image.src = './model/Main/Diana_A.png';
@@ -271,29 +272,33 @@
             } else if (e.key == 'Enter') {
                 image.src = './model/Main/Diana_Enter.png';
             } else if (e.key == '`') {
-                image.src = './model/Main/Diana_~.png';
+                image.src = './model/Main/Diana_bl.png';
             } else if (e.key == '-') {
-                image.src = './model/Main/Diana_-.png';
+                image.src = './model/Main/Diana_hg.png';
             } else if (e.key == '=') {
-                image.src = './model/Main/Diana_=.png';
+                image.src = './model/Main/Diana_dh.png';
             } else if (e.key == '[') {
-                image.src = './model/Main/Diana_[.png';
+                image.src = './model/Main/Diana_zkh.png';
             } else if (e.key == ']') {
-                image.src = './model/Main/Diana_].png';
+                image.src = './model/Main/Diana_ykh.png';
             } else if (e.key == '\\') {
                 image.src = './model/Main/Diana_xg.png';
             } else if (e.key == ';') {
-                image.src = './model/Main/Diana_;.png';
+                image.src = './model/Main/Diana_fh.png';
             } else if (e.key == '\'') {
-                image.src = './model/Main/Diana_dian.png';
+                image.src = './model/Main/Diana_yh.png';
             } else if (e.key == ',') {
                 image.src = './model/Main/Diana_zk.png';
             } else if (e.key == '.') {
                 image.src = './model/Main/Diana_yk.png';
             } else if (e.key == '/') {
                 image.src = './model/Main/Diana_wh.png';
+            } else if (e.key == 0) {
+                image.src = './model/Main/Diana_Space.png';
+            } else if (e.key == '0') {
+                image.src = './model/Main/Diana_0.png';
             } else {
-                for (var i = 0; i <= 9; i++) {
+                for (var i = 1; i <= 9; i++) {
                     if (e.key == i)
                         image.src = './model/Main/Diana_' + i + '.png';
                 }
