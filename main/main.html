@@ -15,12 +15,14 @@
             bottom: 15%;
             z-index: 999;
         }
+
         .image {
             position: absolute;
             left: 200px;
             z-index: 999;
             pointer-events: none;
         }
+
         .change {
             display: none;
             position: fixed;
@@ -32,44 +34,59 @@
             z-index: 999;
             pointer-events: none;
         }
+
         .mainbody {
             position: absolute;
             z-index: 999;
             pointer-events: none;
         }
+
         .expression {
             position: absolute;
             z-index: 999;
             pointer-events: none;
         }
+
         .face {
             position: absolute;
             z-index: 999;
             pointer-events: none;
         }
+
         .hair {
             position: absolute;
             z-index: 999;
             pointer-events: none;
         }
+
         .talking {
             position: absolute;
             z-index: 999;
             pointer-events: none;
         }
+
         .specialkey1 {
             position: absolute;
             z-index: 999;
             pointer-events: none;
             display: none;
         }
+
         .specialkey2 {
             position: absolute;
             z-index: 999;
             pointer-events: none;
             display: none;
         }
+
         .specialkey3 {
+            position: absolute;
+            z-index: 999;
+            pointer-events: none;
+            display: none;
+        }
+
+        .specialkey4 {
             position: absolute;
             z-index: 999;
             pointer-events: none;
@@ -87,7 +104,9 @@
         <img class="expression" src="./model/Expression/openEye.png" width="350px" height="350px">
         <img class="hair" src="./model/Other/Diana_FrontHair.png" width="350px" height="350px">
         <img class="specialkey1" src="./model/Main/Diana_Shift.png" width="350px" height="350px">
+        <img class="specialkey2" src="./model/Main/Diana_Alt.png" width="350px" height="350px">
         <img class="specialkey3" src="./model/Main/Diana_Ctrl.png" width="350px" height="350px">
+        <img class="specialkey4" src="./model/Main/Diana_Tab.png" width="350px" height="350px">
         <img class="talking" src="./model/Chat/missU.png" width="350px" height="350px">
     </div>
 
@@ -120,7 +139,7 @@
             talking.style.display = 'block';
             talking.src = "./model/Chat/together.png";
             expression.src = "./model/Expression/3.png";
-            setTimeout(function(){
+            setTimeout(function () {
                 talking.style.display = 'none';
             }, 3100);
         }
@@ -129,12 +148,12 @@
             talking.style.display = 'block';
             talking.src = "./model/Chat/coding.png";
             expression.src = "./model/Expression/starEye.png";
-            setTimeout(function(){
+            setTimeout(function () {
                 talking.style.display = 'none';
             }, 2300);
         })
 
-        setTimeout(() => {//删除初始文本问候
+        setTimeout(() => { //删除初始文本问候
             talking.style.display = 'none';
         }, 3300);
 
@@ -143,13 +162,13 @@
             expression.src = "./model/Expression/closeEye.png";
             setTimeout(function () {
                 expression.src = "./model/Expression/openEye.png";
-            },345);
-        },5678);
+            }, 345);
+        }, 5678);
 
         //表情切换
         var fader1 = setInterval(function () {
             var d = new Date();
-            j = (d.getTime()%4) + 1;
+            j = (d.getTime() % 4) + 1;
             expression.src = "./model/Expression/" + j + ".png";
             if (j == 4)
                 j = 1;
@@ -159,7 +178,7 @@
         var fader2 = setInterval(function () {
             talking.style.display = 'block';
             talking.src = "./model/Chat/drink.png";
-            setTimeout(function(){
+            setTimeout(function () {
                 talking.style.display = 'none';
             }, 5000);
         }, 540000);
@@ -168,7 +187,7 @@
         var fader3 = setInterval(function () {
             talking.style.display = 'block';
             talking.src = "./model/Chat/stand.png";
-            setTimeout(function(){
+            setTimeout(function () {
                 talking.style.display = 'none';
             }, 5000);
         }, 360000);
@@ -177,7 +196,7 @@
         var fader4 = setInterval(function () {
             talking.style.display = 'block';
             talking.src = "./model/Chat/rest.png";
-            setTimeout(function(){
+            setTimeout(function () {
                 talking.style.display = 'none';
             }, 5000);
         }, 720000);
@@ -186,12 +205,10 @@
 
         document.addEventListener('keyup', function (up) {
             image.src = "./model/Main/Diana_Initial.png";
-            if (up.key == "Shift") {
-                specialkey1.style.display = "none";
-            }
-            if (up.key == "Control") {
-                specialkey3.style.display = "none";
-            }
+            specialkey1.style.display = "none";
+            specialkey2.style.display = "none";
+            specialkey3.style.display = "none";
+            specialkey4.style.display = "none";
         })
         var specialkey1 = document.querySelector('.specialkey1');
         var specialkey2 = document.querySelector('.specialkey2');
@@ -251,6 +268,30 @@
                 image.src = './model/Main/Diana_Z.png';
             } else if (e.key == 'Backspace') {
                 image.src = './model/Main/Diana_Backspace.png';
+            } else if (e.key == 'Enter') {
+                image.src = './model/Main/Diana_Enter.png';
+            } else if (e.key == '`') {
+                image.src = './model/Main/Diana_~.png';
+            } else if (e.key == '-') {
+                image.src = './model/Main/Diana_-.png';
+            } else if (e.key == '=') {
+                image.src = './model/Main/Diana_=.png';
+            } else if (e.key == '[') {
+                image.src = './model/Main/Diana_[.png';
+            } else if (e.key == ']') {
+                image.src = './model/Main/Diana_].png';
+            } else if (e.key == '\\') {
+                image.src = './model/Main/Diana_xg.png';
+            } else if (e.key == ';') {
+                image.src = './model/Main/Diana_;.png';
+            } else if (e.key == '\'') {
+                image.src = './model/Main/Diana_dian.png';
+            } else if (e.key == ',') {
+                image.src = './model/Main/Diana_zk.png';
+            } else if (e.key == '.') {
+                image.src = './model/Main/Diana_yk.png';
+            } else if (e.key == '/') {
+                image.src = './model/Main/Diana_wh.png';
             } else {
                 for (var i = 0; i <= 9; i++) {
                     if (e.key == i)
@@ -260,8 +301,13 @@
             if (e.key == "Shift") {
                 specialkey1.style.display = "block";
             }
+            if (e.key == "Alt") {
+                specialkey2.style.display = "block";
+            }
             if (e.key == "Control") {
                 specialkey3.style.display = "block";
+            } else if (e.key == "Tab") {
+                specialkey4.style.display = "block";
             }
         })
     </script>

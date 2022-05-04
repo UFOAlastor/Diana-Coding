@@ -14,8 +14,11 @@
 
 ![Diana_show](https://s2.loli.net/2022/05/03/jOusPyBkQAxJeYg.gif)
 
-
 # 视频演示
+
+
+
+[嘉然代打~vscode拓展[Diana-Coding] BiLiBiLi](https://www.bilibili.com/video/BV1hY4y1k7GS?spm_id_from=333.999.0.0)
 
 # 功能概况
 
@@ -60,7 +63,7 @@
 > So, a warning appears while the first time to install or vscode update. U can click the [never show again] to avoid it.
 >
 
-# 团队成员  
+# 团队成员
 
 -   ### [此店不售此书](https://Alastor.top)
 
@@ -68,6 +71,6 @@
 
 -   ### 一初
 
-    
+
 
 ## 请勿使用该项目进行商业盈利
