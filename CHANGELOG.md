@@ -1,3 +1,6 @@
+## ver1.1.0
+vscode更新后workbench的路径被修改，旧版本diana无法适用于新版本vscode
+如果您使用的是旧版本vscode，请使用1.0.5的diana插件
 ## ver1.0.5
 修复space和0键的bug
 ## ver1.0.4

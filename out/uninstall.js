@@ -9,7 +9,7 @@ const originalHtml_1 = require("./originalHtml");
 class Uninstall {
     //初始化参数
     constructor(extName) {
-        this.filePath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'workbench.js');
+        this.filePath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'workbench.js');
         this.extName = extName;
      }
     /**
@@ -54,13 +54,13 @@ class Uninstall {
             this.saveContent(content);
             // 还原HTML
             let originalHtml = originalHtml_1.default().replace(/\s*$/, '');
-            const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'workbench.html');
+            const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'workbench.html');
             fs.writeFileSync(htmlPath, originalHtml, 'utf-8');
             // 删除文件
-            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'movement.js'));
-            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'main.html'));
-            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'config.json'));
-            removeFiles(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'model'));
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'movement.js'));
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'main.html'));
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'config.json'));
+            removeFiles(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'model'));
             vsHelp_1.default.showInfoRestart(this.extName + "已经卸载插件，请重新启动！")
             return true;
         }

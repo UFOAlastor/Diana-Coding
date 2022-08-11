@@ -21,7 +21,7 @@ class Dom {
         // 如果是第一次加载插件，或者旧版本
         if (firstload || fileType === FileType_1.default.isOld || fileType === FileType_1.default.empty) {
             const base = path.dirname(require.main.filename);
-            copy(path.join(__dirname, '../main/'), path.join(base, 'vs', 'code', 'electron-browser', 'workbench'));
+            copy(path.join(__dirname, '../main/'), path.join(base, 'vs', 'code', 'electron-sandbox', 'workbench'));
             this.install(true);
         }
     }
@@ -39,7 +39,7 @@ class Dom {
         if (!refresh && JSON.stringify(lastConfig) === JSON.stringify(config)) {
             return;
         }
-        // 之后操作有两种：1.初次加载  2.配置文件改变 
+        // 之后操作有两种：1.初次加载  2.配置文件改变
         // 2.两次配置均为，未启动插件
         if (!lastConfig.enabled && !config.enabled) {
             return;
@@ -71,7 +71,7 @@ class Dom {
         this.saveContent(newContent);
         // 设置新的HTML
         let newHTML = allowScript_1.default().replace(/\s*$/, '');
-        const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'workbench.html');
+        const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'workbench.html');
         fs.writeFileSync(htmlPath, newHTML, 'utf-8');
         vsHelp_1.default.showInfoRestart(this.extName + ' 已更新配置，请重新启动！');
     }
@@ -116,11 +116,11 @@ class Dom {
             this.saveContent(content);
             // 还原HTML
             let originalHtml = originalHtml_1.default().replace(/\s*$/, '');
-            const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'workbench.html');
-            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'movement.js'));
-            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'main.html'));
-            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'config.json'));
-            removeFiles(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-browser', 'workbench', 'model'));
+            const htmlPath = path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'workbench.html');
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'movement.js'));
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'main.html'));
+            fs.unlinkSync(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'config.json'));
+            removeFiles(path.join(path.dirname(require.main.filename), 'vs', 'code', 'electron-sandbox', 'workbench', 'model'));
             fs.writeFileSync(htmlPath, originalHtml, 'utf-8');
             return true;
         }
